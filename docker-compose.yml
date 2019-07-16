@@ -1,0 +1,73 @@
+version: '2'
+
+services:
+  web:
+    image: nginx:latest
+    container_name: "nginx-wordpress-docker"
+    ports:
+      - "8080:80"
+    env_file: .env
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+      # - /var/log/wordpress-docker:/var/log/nginx
+      # - /u01/keys/wordpress-docker/wordpress-docker_ssl.crt:/etc/ssl/wordpress-docker_ssl.crt
+      # - /u01/keys/wordpress-docker/wordpress-docker_ssl.key:/etc/ssl/wordpress-docker_ssl.key
+    links:
+      - php
+    volumes_from:
+      - app-data
+  
+  # logstash
+  logstash:
+    build: ./logstash
+    container_name: "logstash-wordpress-docker"
+
+  # php
+  php:  
+    build: ./php/
+    container_name: "php7-fpm-wordpress-docker"
+    env_file: .env
+    # expose:
+    #   - 9000
+    links:
+      - mysql
+    volumes_from:
+      - app-data
+
+  # mysql
+  mysql:
+    image: mysql:5.7.21
+    container_name: "mysql-wordpress-docker"
+    volumes_from:
+      - mysql-data
+    # ports:
+    #  - "9306:3306"
+    env_file: .env
+  
+  # wordpress data
+  app-data:
+    image: php:7.0-fpm
+    container_name: "app-data-wordpress-docker"
+    volumes:
+      - ./wordpress:/var/www/html
+    command: "true"
+  
+  # mysql data
+  mysql-data:
+    image: mysql:5.7.21
+    container_name: "mysql-data-wordpress-docker"
+    volumes:
+      - ./db/mysql:/var/lib/mysql
+    command: "true"
+  
+  # phpmyadmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: "phpmyadmin-wordpress-docker"
+    ports:
+      - 8081:80
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
