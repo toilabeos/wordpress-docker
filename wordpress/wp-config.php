@@ -1,18 +1,46 @@
 <?php
+/**
+ * The base configuration for WordPress
+ *
+ * The wp-config.php creation script uses this file during the
+ * installation. You don't have to use the web site, you can
+ * copy this file to "wp-config.php" and fill in the values.
+ *
+ * This file contains the following configurations:
+ *
+ * * MySQL settings
+ * * Secret keys
+ * * Database table prefix
+ * * ABSPATH
+ *
+ * @link https://codex.wordpress.org/Editing_wp-config.php
+ *
+ * @package WordPress
+ */
 
-//define('DB_NAME', 'db');
-//define('DB_USER', 'user');
-//define('DB_PASSWORD', 'pwd');
-// User env variables to get MySQL values
+// ** MySQL settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+// define( 'DB_NAME', 'wordpress-docker' );
 define('DB_NAME', getenv('MYSQL_DATABASE'));
+
+/** MySQL database username */
+// define( 'DB_USER', 'root' );
 define('DB_USER', 'root');
+
+/** MySQL database password */
+// define( 'DB_PASSWORD', '' );
 define('DB_PASSWORD', getenv('MYSQL_ROOT_PASSWORD'));
 
-//define('DB_HOST', 'mysql');
+/** MySQL hostname */
+// define( 'DB_HOST', 'localhost' );
 define('DB_HOST', getenv('MYSQL_HOST'));
-define('DB_CHARSET', 'utf8');
-define('DB_COLLATE', '');
 
+/** Database Charset to use in creating database tables. */
+// define( 'DB_CHARSET', 'utf8mb4' );
+define('DB_CHARSET', 'utf8');
+
+/** The Database Collate type. Don't change this if in doubt. */
+define( 'DB_COLLATE', '' );
 
 /**#@+
  * Authentication Unique Keys and Salts.
@@ -23,14 +51,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         '+lPLaGW+|]<xDdSLCmKM(!be+HpLVr+-6BLW]ZT,pfeU+Vb$~IiEE;%NlsI)hetn');
-define('SECURE_AUTH_KEY',  'msI`73G/&W_^HWRMy](~6|s1)kX-!mWosxdf,%y-e>||b1.++dKPVExc$p}KV?;i');
-define('LOGGED_IN_KEY',    'veWMYGD^KIhiGbfxI?oEHF09eEz8&VNFJAW%M3Raj`^-lYsMm>g#t?7(2Ib|x}:h');
-define('NONCE_KEY',        '/V(HE1v_kIYXS^q#,[B/m$ `}FwlvS/E/fY+KIkA$R)PvWsW9oY[$Xc<>+<]ecd$');
-define('AUTH_SALT',        '((<fAL|Oj*$nX6`|ijTU@l|RW}9I&23+sv{s2?c=MM0<I<gKygL9`J$l$e>TgXvs');
-define('SECURE_AUTH_SALT', 'Mq:pk!73)ldJ|_Ocx!YYXg>8x(G,w/q5Mk:_a]VTa{)v|I?(7$ k&#cJWO}|fGjI');
-define('LOGGED_IN_SALT',   'BcNbhU4j*,|3;TU*S<EPk9H+C2I>pVrl-Ll5TctvuQR@jxU]~ %m~>*H|V:aHU+X');
-define('NONCE_SALT',       'E6E_ %8` .7YlQ^it1d<!ykc|&jyI.$`[;2[Kh-3^J%TXn+}(gJTe(r~R12$PZ{p');
+define( 'AUTH_KEY',         'hfJdh)z3.TQ%}vzsp!G7zny&}!ArSZ3Y::r)c{6jS_#mDy1a_bfE.@4[xcM8WQ~$' );
+define( 'SECURE_AUTH_KEY',  '#bn/S54TZS~WG2S{w])`-b~?s0` qtl<Gnd^?zc y>Fsfzo5N,^Da;w T7LN4IX]' );
+define( 'LOGGED_IN_KEY',    'qN?sbI|(0U[R0v4y:a4=RLYV2U*ip}Wg9`<D 4S4]m:9!k~OCOR%1w6;ivm2u_j$' );
+define( 'NONCE_KEY',        'k]GD-kn&#?sTXMPWWQ.D0M@S&].w=wwLu=~k-$PS&eJ-]AS}5D5uqADK+V|[HaAV' );
+define( 'AUTH_SALT',        ':QH(3j}j.SRi8GH!G|o3ozyXy#k_V(<A3SV@-3D-8Dk%{,DzN5M?X5{ZOQ`@Hq+F' );
+define( 'SECURE_AUTH_SALT', 'u*:g^DoKW?DKlP8J%b fC|I.$5%wiCN{o^Sq;4)U4)&(VEB#~9x?3:VtEe{0vd{C' );
+define( 'LOGGED_IN_SALT',   'KYbb8h+G|(k}i?mwHjxc|f1o>=l8{`^#j]J76Q~kO^olH]6mgkG,KR?{;nYB2BLz' );
+define( 'NONCE_SALT',       '[pc%Bc>X(oovjwbr9q/[p{2mL{B1IJMB7K=(`jFJY[;L.&W+z)_}nRyZH8$[i>Y|' );
 
 /**#@-*/
 
@@ -40,6 +68,7 @@ define('NONCE_SALT',       'E6E_ %8` .7YlQ^it1d<!ykc|&jyI.$`[;2[Kh-3^J%TXn+}(gJT
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
+// $table_prefix = 'wp_';
 $table_prefix  =  getenv('TABLE_PREFIX').'_';
 
 /**
@@ -54,18 +83,22 @@ $table_prefix  =  getenv('TABLE_PREFIX').'_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', false);
+define( 'WP_DEBUG', false );
 
 // Config SSl
 // define( 'FORCE_SSL_ADMIN', true );
 // if (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false)  
 //     $_SERVER['HTTPS']='on';
 
-/* That's all, stop editing! Happy blogging. */
+/* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */
-if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/');
+if ( ! defined( 'ABSPATH' ) ) {
+	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
+}
+
+/** Sets up WordPress vars and included files. */
+// require_once( ABSPATH . 'wp-settings.php' );
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');

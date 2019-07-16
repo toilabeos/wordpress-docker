@@ -1,0 +1,45 @@
+
+---Downloaded files---
+The import files for: Startup were successfully downloaded!
+Initial max execution time = 30
+Files info:
+Site URL = http://localhost/wordpress
+Data file = C:\xampp\htdocs\wordpress/wp-content/uploads/2019/07/demo-content-import-file_2019-07-16__07-53-17.xml
+Widget file = C:\xampp\htdocs\wordpress/wp-content/uploads/2019/07/demo-widgets-import-file_2019-07-16__07-53-17.json
+Customizer file = C:\xampp\htdocs\wordpress/wp-content/uploads/2019/07/demo-customizer-import-file_2019-07-16__07-53-17.dat
+Redux files:
+not defined!
+
+---Importing widgets---
+Thanh bên : 
+
+Tìm kiếm - No Title - Widget already exists
+Bài viết mới - No Title - Widget already exists
+Phản hồi gần đây - No Title - Widget already exists
+Lưu trữ - No Title - Widget already exists
+Chuyên mục - No Title - Widget already exists
+Meta - No Title - Widget already exists
+
+Chân trang1 : 
+
+Văn bản - No Title - Widget already exists
+
+Chân trang2 : 
+
+Văn bản - Contact us - Widget already exists
+
+Chân trang3 : 
+
+Thanh điều hướng - Quick links - Widget already exists
+
+Chân trang4 : 
+
+Airi: Hồ sơ mạng xã hội - Follow us - Widget already exists
+
+
+
+---Importing customizer settings---
+Customizer settings import finished!
+
+---pt-ocdi/after_import---
+

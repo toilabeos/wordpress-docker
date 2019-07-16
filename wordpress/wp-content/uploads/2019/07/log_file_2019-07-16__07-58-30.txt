@@ -1,0 +1,53 @@
+
+---Downloaded files---
+The import files for: Nội dung trình diễn chủ đề were successfully downloaded!
+Initial max execution time = 30
+Files info:
+Site URL = http://localhost/wordpress
+Data file = C:\xampp\htdocs\wordpress/wp-content/themes/super-construction/includes/demo/demo-content/content.xml
+Widget file = C:\xampp\htdocs\wordpress/wp-content/themes/super-construction/includes/demo/demo-content/widget.wie
+Customizer file = C:\xampp\htdocs\wordpress/wp-content/themes/super-construction/includes/demo/demo-content/customizer.dat
+Redux files:
+not defined!
+
+---Importing widgets---
+Sidebar : 
+
+Tìm kiếm - No Title - Widget already exists
+BP: Social - Follow Us - Widget already exists
+Gallery ảnh - Our Gallery - Widget already exists
+BP: Advanced Recent Posts - Recent Posts - Widget already exists
+
+Home Page Widget Area : 
+
+BP: Dịch vụ - Our Services - Widget already exists
+BP: CTA - WORKING WITH US - Widget already exists
+PT: Portfolio - Our Projects - Imported
+PT: Testimonials - Testimonials - Imported
+PT: Our Team - Our Team - Imported
+PT: Clients - No Title - Imported
+
+Footer 1 : 
+
+Văn bản - About Us - Widget already exists
+BP: Social - No Title - Widget already exists
+
+Footer 2 : 
+
+Gallery ảnh - Recent Projects - Widget already exists
+
+Footer 3 : 
+
+Bài viết mới - No Title - Widget already exists
+
+Footer 4 : 
+
+BP: Advanced Recent Posts - Recent Posts - Widget already exists
+
+
+
+---Importing customizer settings---
+Customizer settings import finished!
+
+---pt-ocdi/after_import---
+
